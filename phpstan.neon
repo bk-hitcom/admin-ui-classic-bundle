@@ -1,10 +1,8 @@
 parameters:
     level: 6
-    ignoreErrors:
-    		- identifier: missingType.iterableValue
-    		- identifier: missingType.generics
     reportUnmatchedIgnoredErrors: false
-    treatPhpDocTypesAsCertain: false
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
     paths:
         - src
     bootstrapFiles:
