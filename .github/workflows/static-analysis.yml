@@ -79,7 +79,7 @@ jobs:
         needs: setup-matrix
         strategy:
             matrix: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
-        uses: pimcore/workflows-collection-public/.github/workflows/reusable-static-analysis-centralized.yaml@main
+        uses: pimcore/workflows-collection-public/.github/workflows/reusable-static-analysis-centralized.yaml@named-phpstan-basline
         with:
             APP_ENV: test
             PIMCORE_TEST: 1
