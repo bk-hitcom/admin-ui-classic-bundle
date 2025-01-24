@@ -407,13 +407,13 @@ class LoginController extends AdminAbstractController implements KernelControlle
 
         $url = $twoFactor->getQRContent($proxyUser);
 
-        $result = Builder::create()
-            ->writer(new PngWriter())
-            ->data($url)
-            ->size(200)
-            ->build();
+        $builder = new Builder(
+            writer: new PngWriter(),
+            data: $url,
+            size: 200
+        );
 
-        $params['image'] = $result->getDataUri();
+        $params['image'] = $builder->build()->getDataUri();
 
         return $this->render('@PimcoreAdmin/admin/login/two_factor_setup.html.twig', $params);
     }
